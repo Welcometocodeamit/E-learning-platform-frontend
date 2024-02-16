@@ -1,0 +1,35 @@
+<div id="logincomponent">
+
+    <div><h1>Login</h1></div>
+
+    
+
+    <div>
+        <form  id="loginForm" [formGroup]="loginForm" (ngSubmit)="submit()" class="reg">
+
+            <mat-form-field class="feild">
+                <mat-label>Email or Username</mat-label>
+                <input matInput formControlName="username">
+            </mat-form-field>
+        
+        
+            <mat-form-field class="feild">
+              <mat-label>Enter password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" #password formControlName="password">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+        
+            <button mat-flat-button color="primary" >Login</button>
+          </form>
+          <br>
+          <h4>Not a regisered user? <a href="/Register">Sign up</a></h4>
+    </div>
+
+</div>
+
+
+<!-- <div id="logoutdiv">
+  <button mat-raised-button color="warn" (click)="logOut()">Logout</button>
+</div> -->

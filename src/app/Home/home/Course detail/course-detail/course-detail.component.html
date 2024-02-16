@@ -1,0 +1,69 @@
+ <div id="main">
+
+     <div id="courseDetail">
+        <div>
+            <h1>Course Name : {{course.courseName}}</h1>
+        </div>
+    
+        <div>
+            <h2>Category : {{course.category.categoryTitle}} </h2>
+        </div>
+    
+        <div id="courseImage">
+            <img height="300px" width="500px" style="object-fit: cover;" [src]="course.image?course.image:'https://img.freepik.com/premium-vector/online-courses-elearning-vector-background-online-courses-text-white-desk-with-laptop-computer_572288-1763.jpg'" alt="angular">
+        </div>
+    
+        <div>
+            <h3>Description : {{course.courseDescription}}</h3>
+        </div>
+
+        <div style="display: flex; justify-content: space-evenly; width: 100%; align-items: normal;">
+            <h3>Level : {{course.courseLevel}}</h3>
+            <h3>Price : {{course.price}} Rs</h3>
+        </div>
+    
+    
+        <div style="display: flex; gap: 10px;">
+            <button *ngIf="!course.fe" mat-raised-button color="primary" (click)="addToCart()">Add to cart</button>
+            <button *ngIf="crudCourse" mat-raised-button color="accent" (click)="openDialog()">Update course</button>
+            <button *ngIf="crudCourse" mat-raised-button color="warn">Delete Course</button>
+        </div>
+
+        <div *ngIf="course.fe">
+            <h3><i>Course already purchased!</i></h3>
+        </div>
+    
+    </div>
+
+    <div class="feedbackmain">
+        <h1>Feedbacks</h1>
+        <div id="btn" *ngIf="course.fe">
+            <button mat-raised-button color="accent" (click)="addFeedback()">{{feedbackaddshowbtn}}</button>
+        </div>
+
+        <div *ngIf="showFeedback">
+            <form  id="loginForm" [formGroup]="feedbackForm" (ngSubmit)="submit()" class="reg">
+
+                <mat-form-field class="feild">
+                    <mat-label>Add feedback to this course</mat-label>
+                    <input matInput formControlName="feedback" value="">
+                </mat-form-field>
+            
+                <button mat-flat-button color="primary" >Save</button>
+              </form>
+
+        </div>
+
+
+
+        <div class="feedbacks">
+            <div  class="mcard" *ngFor="let f of feedback">
+                <mat-card class="mcardclr">
+                    <mat-card-header>{{f.courseFeedback}}</mat-card-header>
+                    <mat-card-content>- {{f.user.firstName | titlecase}} {{f.user.lastName | titlecase}}</mat-card-content>
+                    <mat-card-actions><button *ngIf="f.authority" mat-raised-button color="warn" (click)="deleteFeedback(f)">Delete</button></mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+ </div>

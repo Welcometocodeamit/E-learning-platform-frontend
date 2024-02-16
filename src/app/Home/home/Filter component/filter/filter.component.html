@@ -1,0 +1,42 @@
+<div id="head">
+    <h1>Filters</h1>
+</div>
+
+
+<div style="margin-bottom: 20px; margin-left: 40px;">
+  <button mat-raised-button color="accent" (click)="refreshFilter()">Refresh filters</button>
+</div>
+
+<div id="searchfilter">
+    <form id="courseForm" [formGroup]="courseForm"  (ngSubmit)="searchByCourseName()" class="example-form searchCourseForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>Serach by course name</mat-label>
+          <input (keyup)="filterCourse($event)" class="input" matInput placeholder="Ex. Angular" formControlName="course">
+        </mat-form-field>
+        <button mat-raised-button color="primary">Search</button>
+    </form>
+</div>
+
+<br><br>
+
+<div style="display: flex;flex-direction: column; justify-content: center; align-items: center;">
+
+  <div>
+    <label id="example-radio-group-label"><h2>Sort by Category</h2></label>
+  </div>
+    <div>
+
+      <form  id="catgoryForm" [formGroup]="catgoryForm" (ngSubmit)="searchByCategory()" class="categoryFormSearch">
+
+        <mat-radio-group formControlName="category" class="radiocontrol">
+          <mat-radio-button *ngFor="let c of category" [value]="c.categoryId">{{c.categoryTitle}}</mat-radio-button>
+        </mat-radio-group>
+        
+        <br>
+        <button mat-flat-button color="primary" >Search Category</button>
+      </form>
+
+    </div>
+    
+
+</div>

@@ -1,0 +1,13 @@
+#mainhomediv{
+    display: flex;
+    min-height: 100vh;
+}
+
+#filter{
+    width: 25%;
+    /* background-color: rgb(231, 239, 239); */
+}
+
+#course{
+    width: 75%;
+}

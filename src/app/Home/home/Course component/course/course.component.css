@@ -1,0 +1,17 @@
+#coursecard{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.pagebtn{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 80px 20px 20px;
+}

@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+*{
+    /* font-family:Verdana, Geneva, Tahoma, sans-serif ; */
+}
+
+#usernameonhomepage{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 10px;
+    background-color: rgb(232, 232, 237);
+    height: 30px;
+    color: rgb(51, 12, 98);
+    font-style: italic;
+}

@@ -1,0 +1,51 @@
+
+<div><h1>Add Course</h1></div>
+
+    
+
+<div>
+    <form  id="addCourseForm" [formGroup]="addCourseForm" (ngSubmit)="submit()" class="addCourseForm">
+
+            <mat-form-field>
+                <mat-label>Course Name</mat-label>
+                <input matInput formControlName="courseName">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Course Description</mat-label>
+                <input matInput formControlName="courseDescription">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Level</mat-label>
+                <mat-select formControlName="courseLevel">
+                  <mat-option *ngFor="let g of level" [value]="g">
+                    {{g}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="price">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Image</mat-label>
+          <input matInput formControlName="image">
+      </mat-form-field>
+
+
+        <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor="let c of category" [value]="c.categoryId">
+                {{c.categoryTitle}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+    
+    
+        <button mat-flat-button color="primary" [disabled]="addCourseForm.invalid" >Add Course</button>
+      </form>
+</div>

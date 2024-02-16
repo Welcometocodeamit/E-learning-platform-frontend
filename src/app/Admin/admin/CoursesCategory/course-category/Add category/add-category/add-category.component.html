@@ -1,0 +1,16 @@
+<div><h1>Add Category</h1></div>
+
+    
+
+<div>
+    <form  id="addCategoryForm" [formGroup]="addCategoryForm" (ngSubmit)="submit()" class="addCourseForm">
+
+            <mat-form-field>
+                <mat-label>Category Name</mat-label>
+                <input matInput formControlName="categoryName">
+            </mat-form-field>
+    
+    
+        <button mat-flat-button color="primary" [disabled]="addCategoryForm.invalid">Add Category</button>
+      </form>
+</div>

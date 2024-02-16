@@ -1,0 +1,45 @@
+<div id="table">
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Order No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="orderDate">
+      <th mat-header-cell *matHeaderCellDef> Order Date & Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderDate | date : 'MMM d, y, h:mm:ss a'}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef> User </th>
+      <td mat-cell *matCellDef="let element"> {{element.user.firstName | titlecase}} {{element.user.lastName | titlecase}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="course">
+      <th mat-header-cell *matHeaderCellDef> Courses </th>
+      <td mat-cell *matCellDef="let element"> {{getOrderCourseName(element)}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="totlePrice">
+      <th mat-header-cell *matHeaderCellDef> Total price </th>
+      <td mat-cell *matCellDef="let element"> {{element.totlePrice}} Rs </td>
+    </ng-container>
+
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<div id="adminpage">
+  <button [disabled]="previouspage" mat-raised-button color="basic" (click)="pp()">Previous</button>
+  <button [disabled]="nextpage" mat-raised-button color="basic" (click)="np()">Next</button>
+</div>
+

@@ -1,0 +1,40 @@
+<div id="table">
+
+    <h1>Orders</h1>
+
+<table *ngIf="dataSource.length!=0" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Order No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="orderDate">
+      <th mat-header-cell *matHeaderCellDef> Order Date & time </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderDate | date : 'MMM d, y, h:mm:ss a'}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="course">
+      <th mat-header-cell *matHeaderCellDef> Courses </th>
+      <td mat-cell *matCellDef="let element"> {{getOrderCourseName(element)}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="totlePrice">
+      <th mat-header-cell *matHeaderCellDef> Total price </th>
+      <td mat-cell *matCellDef="let element"> {{element.totlePrice}} Rs </td>
+    </ng-container>
+
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div *ngIf="dataSource.length==0"><h2>Your have not made any order yet!</h2></div>
+</div>
+
+

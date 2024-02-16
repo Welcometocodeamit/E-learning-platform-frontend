@@ -1,0 +1,24 @@
+<div id="heading">
+    <h1>Courses</h1>
+</div>
+
+<div id="coursecard">
+
+    <ng-container *ngFor="let course of Courses">
+
+        <ng-container *ngIf="filter == null">
+            <app-card [courseData]="course"></app-card>
+        </ng-container>
+
+        <ng-container *ngIf="(course.courseName).toLowerCase().includes(filter)">
+            <app-card [courseData]="course"></app-card>
+        </ng-container>
+    </ng-container>
+
+</div>
+
+<div class="pagebtn">
+    <button mat-raised-button color="basic" [disabled]="firstPage" (click)="prevPage()">Previous</button>
+    <button mat-raised-button color="basic" [disabled]="lastPage" (click)="nextPage()" >Next</button>
+</div>
+

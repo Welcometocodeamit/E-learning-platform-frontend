@@ -1,0 +1,22 @@
+<mat-toolbar  color="primary" class="nav">   
+
+    <div>
+        <p>Eudemy</p>
+    </div>
+
+    <div>
+        <button mat-button *ngIf="getLoggedIn()" routerLink="Home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a>Home</a></button>
+        <button mat-button *ngIf="getLoggedIn()" routerLink="Orders" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a>Orders</a></button>
+        <button mat-button *ngIf="getAdmin()" routerLink="Admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a>Admin Panal</a></button>
+    </div>
+
+    
+
+  
+    <div>
+        <button *ngIf="getLoggedIn()" mat-raised-button [matBadge]="count" color="none" matBadgePosition="before" matBadgeColor="accent" routerLink="Cart" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a>Cart</a></button>
+        <button *ngIf="!loginorlogout" (click)="login()" mat-button color="accent" routerLink="Login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" ><a>Login</a></button>
+        <button *ngIf="loginorlogout" mat-button color="warn" (click)="logOut()" routerLink="Login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a>Logout</a></button>
+        <!-- <button mat-button routerLink="Register" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a>Register</a></button> -->
+    </div>
+</mat-toolbar>

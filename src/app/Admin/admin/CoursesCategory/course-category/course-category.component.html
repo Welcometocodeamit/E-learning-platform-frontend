@@ -1,0 +1,10 @@
+<div style="display: flex; gap: 10px; margin: 20px;">
+    <button mat-raised-button color="primary" (click)="showAddCourse()">Add Course</button>
+    <button mat-raised-button color="primary" (click)="showAddCategory()">Add Category</button>
+</div>
+
+<div style="display: flex; justify-content: space-evenly; ">
+    <app-add-course *ngIf="showAddCourseVariable"></app-add-course>
+    <app-add-category *ngIf="showAddCategoryVariable"></app-add-category>
+</div>
+

@@ -1,0 +1,13 @@
+<mat-card class="example-card">
+    <mat-card-header id="math">
+      <mat-card-title>{{courseData.courseName}}</mat-card-title>
+    </mat-card-header>
+    <img height="250px" width="250px" style="object-fit: contain;" mat-card-image [src]="courseData.image?courseData.image:'https://png.pngtree.com/png-vector/20190129/ourmid/pngtree-graduation-icon-png-image_350574.jpg'" alt="Photo of a Shiba Inu">
+    <!-- <mat-card-content>
+      <p>Course Description</p>
+    </mat-card-content> -->
+    <mat-card-actions>
+      <button style="width: 100%;" mat-raised-button color="primary" (click)="goToCourse()">View Course</button>
+
+    </mat-card-actions>
+  </mat-card>

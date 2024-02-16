@@ -1,0 +1,10 @@
+#table{
+    margin: 30px;
+}
+
+
+#adminpage{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 60px;
+}

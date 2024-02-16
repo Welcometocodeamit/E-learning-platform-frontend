@@ -1,0 +1,12 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: rgb(53, 12, 91); */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* #logoutbtnnav{
+    color: rgb(231, 127, 127);
+} */
