@@ -10,7 +10,7 @@ import { CourseService } from 'src/app/Services/course.service';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
-  category: any = null;
+  category = [];
   catgoryForm:FormGroup
   courseForm:FormGroup
   variable:boolean=false
@@ -31,12 +31,18 @@ export class FilterComponent {
 
     this.courseService.getCategory()
     this.courseService.categorySubject.subscribe((data)=>{
+      
       this.category=this.courseService.categories
     })
   }
   
   searchByCategory(){
-    this.courseService.getCourseByCategory(this.catgoryForm.value.category, 0)
+    if(this.catgoryForm.value.category=='all'){
+      this.courseService.getCourses(0)
+    }else{
+
+      this.courseService.getCourseByCategory(this.catgoryForm.value.category, 0)
+    }
     this.variable=true
   }
 
@@ -58,8 +64,8 @@ export class FilterComponent {
 
   
 
-  refreshFilter(){
-    window.location.reload()
-  }
+  // refreshFilter(){
+  //   window.location.reload()
+  // }
 
 }

@@ -5,6 +5,7 @@ import { OrderBackend } from '../Models/OrderBackend';
 import { Category } from '../Models/Category';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FeedbackBackend } from '../Models/FeedbackBackend';
+import { FilterDate } from '../Models/FilterDate';
 
 @Injectable({
   providedIn: 'root'
@@ -128,6 +129,27 @@ export class HttpService {
   // logIn
   login(user){
     return this.http.post(this.URL+`/user/login`, user)
+  }
+
+  // delete course
+  deleteCourse(courseId:number){
+    return this.http.delete(this.URL+`/admin/courses/${courseId}`)
+  }
+
+  getChartDate(){
+    return this.http.get(this.URL+`/admin/orders/chart`)
+  }
+
+  getWeeklyData(){
+    return this.http.get(this.URL+`/admin/orders/weekly`)
+  }
+
+  getDailyFilteredData(filterDate:FilterDate){
+    return this.http.post(this.URL+`/admin/orders/daily/sort`, filterDate)
+  }
+
+  getWeeklyFilteredData(filterDate:FilterDate){
+    return this.http.post(this.URL+`/admin/orders/weekly/sort`, filterDate)
   }
 
 }

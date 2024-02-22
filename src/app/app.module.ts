@@ -22,6 +22,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {  HttpInterceptorInterceptor } from './Interceptor/http.interceptor';
 import { RouterModule } from '@angular/router';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
@@ -48,7 +49,8 @@ import { RouterModule } from '@angular/router';
     RegisterModule,
     LoginModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxSpinnerModule
   ],
   exports:[
     RouterModule

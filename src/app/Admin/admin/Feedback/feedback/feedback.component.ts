@@ -10,7 +10,7 @@ export class FeedbackComponent {
   displayedColumns: string[] = ['courseFeedbackId', 'courseFeedback', 'courseName', 'userName', 'actions'];
   
 
-  ELEMENT_DATA: any[] = [
+  ELEMENT_DATA = [
     {courseFeedbackId: 1, courseFeedback: 'Hydrogen', courseName: "Angular", userName: 'H'},
     {courseFeedbackId: 2, courseFeedback: 'Helium', courseName: "Spring boot", userName: 'He'},
     {courseFeedbackId: 3, courseFeedback: 'Lithium', courseName: "Java", userName: 'Li'}

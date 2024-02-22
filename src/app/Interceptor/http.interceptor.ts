@@ -3,16 +3,18 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, finalize, map, tap, throwError } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable()
 export class HttpInterceptorInterceptor implements HttpInterceptor {
 
   token:string = null
 
-  constructor() {
+  constructor(private spinner:NgxSpinnerService) {
 
     if(localStorage.getItem('token') == null){
       localStorage.setItem('token', JSON.stringify(this.token))
@@ -36,9 +38,26 @@ export class HttpInterceptorInterceptor implements HttpInterceptor {
     modifiedRequest = request.clone({
       headers: request.headers.set('Authorization', `Bearer ${this.token}`).set('Content-Type', 'application/json'),
     });
+    this.spinner.show()
 
-    return next.handle(modifiedRequest);
+    return next.handle(modifiedRequest).pipe(
+      catchError((error: any) => {
+        // Hide spinner on error
+         setTimeout(() => {
+          this.spinner.hide();
+        }, 300);
+        // this.spinner.hide();
+        return throwError(error);
+      }),
+      finalize(() => {
+        // Hide spinner when the request completes (success or error)
+        setTimeout(() => {
+          this.spinner.hide();
+        }, 300);
+      })
+    );;
 
   }
-  return next.handle(request);
+
+    return next.handle(request)
 }}

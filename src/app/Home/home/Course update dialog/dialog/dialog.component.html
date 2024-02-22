@@ -16,15 +16,20 @@
     <mat-form-field >
       <mat-label for="courseLevel">Level</mat-label>
       <mat-select aria-label="courseLevel" id="courseLevel" name="courseLevel" formControlName="courseLevel">
-        <mat-option *ngFor="let s of level" [value]="s" >
-          {{s}}
+        <mat-option *ngFor="let p of level" [value]="p" >
+          {{p}}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Price</mat-label>
-      <input aria-label="Description" matInput style="height: 20px;"  id="desc"  formControlName="price" value="" >  
+      <mat-label for="price">Price</mat-label>
+      <input aria-label="Description" matInput style="height: 20px;" name="price"  id="price"  formControlName="price"  >  
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="image">Image</mat-label>
+      <input matInput id="image" name="image" formControlName="image">
     </mat-form-field>
 
     <mat-form-field >
@@ -36,9 +41,9 @@
       </mat-select>
     </mat-form-field>
 
-    <div mat-dialog-actions style="display: flex; justify-content: space-evenly;">
+    <div style="display: flex; justify-content: space-evenly;">
       <button mat-button type="button" (click)="onNoClick()">No Thanks</button>
-      <button mat-button [mat-dialog-close]="data.animal" type="submit" cdkFocusInitial >Ok</button>
+      <button mat-button type="submit" cdkFocusInitial >Ok</button>
     </div>
 
   </form>

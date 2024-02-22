@@ -6,6 +6,13 @@
     flex-direction: column;
 }
 
+#loginMain{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 85vh;
+}
+
 #loginForm{
 
     display: flex;

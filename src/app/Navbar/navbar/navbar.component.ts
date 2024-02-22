@@ -48,11 +48,11 @@ export class NavbarComponent {
   }
 
   login(){
-    setTimeout(()=>{
+    // setTimeout(()=>{
       if(this.loginorlogout){
         this.router.navigate(["Home"])
       }
-    }, 1000)
+    // }, 1000)
 
   }
 

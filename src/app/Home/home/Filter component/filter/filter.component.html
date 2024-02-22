@@ -2,10 +2,10 @@
     <h1>Filters</h1>
 </div>
 
-
+<!-- 
 <div style="margin-bottom: 20px; margin-left: 40px;">
   <button mat-raised-button color="accent" (click)="refreshFilter()">Refresh filters</button>
-</div>
+</div> -->
 
 <div id="searchfilter">
     <form id="courseForm" [formGroup]="courseForm"  (ngSubmit)="searchByCourseName()" class="example-form searchCourseForm">
@@ -29,6 +29,7 @@
       <form  id="catgoryForm" [formGroup]="catgoryForm" (ngSubmit)="searchByCategory()" class="categoryFormSearch">
 
         <mat-radio-group formControlName="category" class="radiocontrol">
+          <mat-radio-button value="all">All</mat-radio-button>
           <mat-radio-button *ngFor="let c of category" [value]="c.categoryId">{{c.categoryTitle}}</mat-radio-button>
         </mat-radio-group>
         

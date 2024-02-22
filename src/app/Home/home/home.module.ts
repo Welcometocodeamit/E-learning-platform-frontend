@@ -18,7 +18,8 @@ import { DialogComponent } from './Course update dialog/dialog/dialog.component'
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import { DialogAnimationsExampleDialogComponent } from './Course detail/course-detail/Dialog/dialog-animations-example-dialog/dialog-animations-example-dialog.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     CourseComponent,
     CardComponent,
     DialogComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    DialogAnimationsExampleDialogComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +48,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonModule,
     FormsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatBadgeModule
     
    ]
 })

@@ -26,7 +26,7 @@ export class CartComponent {
   createOrder:OrderBackend
 
   displayedColumns: string[] = ['courseId', 'courseName', 'price', 'action'];
-  dataSource
+  dataSource=[]
 
   getTotalPrice(){
     this.totalPrice=0

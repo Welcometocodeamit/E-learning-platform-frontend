@@ -43,3 +43,30 @@
   <button [disabled]="nextpage" mat-raised-button color="basic" (click)="np()">Next</button>
 </div>
 
+<br><br>
+
+<div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
+  <form [formGroup]="form" (ngSubmit)="save()" class="form">
+
+    
+    <mat-form-field>
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker" [max]="today">
+        <input formControlName="from" matStartDate placeholder="Start date" >
+        <input formControlName="to" matEndDate placeholder="End date" >
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+<button [disabled]="form.invalid" mat-raised-button color="primary">Search Order</button>
+
+  </form>
+</div>
+<div style="display: flex; justify-content: space-around; flex-wrap: wrap;" class="chartss">
+  <app-orders-chart [chartData]="dailyChartData"></app-orders-chart>
+  <app-pie-chart [chartData]="weeklyChartData"></app-pie-chart>
+</div>
+
+

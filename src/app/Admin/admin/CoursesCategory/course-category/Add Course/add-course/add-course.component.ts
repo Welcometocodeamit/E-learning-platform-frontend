@@ -28,7 +28,7 @@ export class AddCourseComponent {
     this.addCourseForm = this.formBuilder.group({
       courseName: ['', Validators.required],
       courseDescription: ['', Validators.required],
-      courseLevel:['', Validators.required, Validators.email],
+      courseLevel:['', Validators.required],
       price: ['', Validators.required],
       image: ['', ],
       category:['', Validators.required]
@@ -39,7 +39,6 @@ export class AddCourseComponent {
     this.createCategory={categoryId:this.addCourseForm.value.category, categoryTitle:''}
     this.addCourseForm.value.category=this.createCategory
     this.createCourse=this.addCourseForm.value
-    console.log(this.createCourse)
     this.courseService.addCourse(this.createCourse)
   }
 

@@ -1,5 +1,23 @@
 <mat-tab-group animationDuration="0ms">
-    <mat-tab label="Courses & Category"><app-course-category></app-course-category></mat-tab>
-    <mat-tab label="Users"><app-users></app-users></mat-tab>
-    <mat-tab label="Orders"><app-all-orders></app-all-orders></mat-tab>
+    <mat-tab label="Courses & Category">
+      <ng-template matTabContent>
+        <app-course-category></app-course-category>
+
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab label="Users">
+
+      <ng-template matTabContent>
+        <app-users></app-users>
+
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Orders">
+
+      <ng-template matTabContent>
+
+        <app-all-orders></app-all-orders>
+      </ng-template>
+    </mat-tab>
   </mat-tab-group>

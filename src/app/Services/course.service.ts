@@ -34,17 +34,20 @@ export class CourseService {
   // 
 
   // all courses
-  courses:any
+  courses
 
   // all categories
-  categories:any=null
+  categories=null
 
   // perticular course for course detail component
-  perticularCourse:any=null
+  perticularCourse=null
   dataPresent=true
 
   // perticular feedback
   perticularFeedback
+
+  // delete dialog feedback
+  deletePerticularFeedback
 
   getCourses(page){
     this.http.getCourse(page).subscribe((data:any)=>{

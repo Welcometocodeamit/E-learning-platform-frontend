@@ -17,4 +17,20 @@
     background-color: rgb(232, 231, 234);
 
   }
-  
+
+  .mat-badge-content{
+    width: 150px;
+    /* Add any additional styling you want for the badge */
+  }
+
+  .custom-badge {
+    position: absolute;
+    top: -12px;
+    right: -10px;
+    background-color: #ffd740; /* Adjust color as needed */
+    color: black; /* Adjust text color as needed */
+    padding: 4px 8px; /* Adjust padding as needed */
+    border-radius: 5%; /* To make it circular, adjust as needed */
+    font-size: 12px; /* Adjust font size as needed */
+    /* Add any additional styling you want for the badge */
+  }

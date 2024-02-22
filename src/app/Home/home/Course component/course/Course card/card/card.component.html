@@ -1,5 +1,8 @@
-<mat-card class="example-card">
-    <mat-card-header id="math">
+<mat-card *ngIf="courseData" class="example-card" >
+  <div class="custom-badge" *ngIf="courseData.fe" >Already purchased</div>
+  
+  
+  <mat-card-header id="math">
       <mat-card-title>{{courseData.courseName}}</mat-card-title>
     </mat-card-header>
     <img height="250px" width="250px" style="object-fit: contain;" mat-card-image [src]="courseData.image?courseData.image:'https://png.pngtree.com/png-vector/20190129/ourmid/pngtree-graduation-icon-png-image_350574.jpg'" alt="Photo of a Shiba Inu">

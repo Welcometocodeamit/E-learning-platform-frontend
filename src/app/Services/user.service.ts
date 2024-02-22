@@ -39,7 +39,6 @@ export class UserService {
     this.http.login(user).subscribe((data:any)=>{
       this.token=data.jwtToken
       localStorage.setItem('token', JSON.stringify(this.token))
-      console.log(data)
       this.http.displayResponse({message:"Login sucess"})
       this.cartService.getCart()
       this.isAdmin=data.admin

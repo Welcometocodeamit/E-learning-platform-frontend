@@ -10,7 +10,7 @@ export class CartService {
 
   constructor(private http:HttpService) { }
 
-  cart:any=null
+  cart=null
   cartSubject=new Subject()
 
   getCart(){

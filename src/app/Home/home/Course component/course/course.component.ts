@@ -17,7 +17,7 @@ export class CourseComponent {
   firstPage:boolean
   lastPage:boolean
 
-  Courses:any=[]
+  Courses=[]
 
   ngOnInit(){
     this.courseService.variableSubject.subscribe((data:string)=>{

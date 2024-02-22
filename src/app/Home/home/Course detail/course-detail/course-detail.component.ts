@@ -7,6 +7,8 @@ import { ActivatedRoute } from '@angular/router';
 import { FeedbackBackend } from 'src/app/Models/FeedbackBackend';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/Services/user.service';
+import { AdminServiceService } from 'src/app/Services/admin-service.service';
+import { DialogAnimationsExampleDialogComponent } from './Dialog/dialog-animations-example-dialog/dialog-animations-example-dialog.component';
 
 @Component({
   selector: 'app-course-detail',
@@ -15,7 +17,7 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class CourseDetailComponent {
 
-  constructor(public dialog: MatDialog, private courseService:CourseService, private cartService:CartService, private activeRoute:ActivatedRoute, private formBuilder:FormBuilder, public userService:UserService){}
+  constructor(public dialog: MatDialog, private courseService:CourseService, private cartService:CartService, private activeRoute:ActivatedRoute, private formBuilder:FormBuilder, public userService:UserService, private adminService:AdminServiceService){}
   feedbackForm:FormGroup
   crudCourse:boolean=this.userService.isAdmin
 
@@ -35,6 +37,19 @@ export class CourseDetailComponent {
       });
     
   }
+  addtc:boolean=false
+
+
+  openDialog2(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogAnimationsExampleDialogComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data:{
+        courseId:this.courseId
+      }
+    });
+  }
 
 
   course=null;
@@ -44,9 +59,11 @@ export class CourseDetailComponent {
 
   feedbackaddshowbtn='Add Feedback'
 
+  courseId
+
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      data: {},
+      data: this.courseId,
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -55,10 +72,13 @@ export class CourseDetailComponent {
 
   addToCart(){
     this.cartService.addToCart(this.courseService.perticularCourse.courseId)
+    this.addtc=true
   }
 
   deleteFeedback(f){
-    this.courseService.deleteFeedbackById(f, this.activeRoute.snapshot.params['courseId'])
+    this.courseId=this.activeRoute.snapshot.params['courseId']
+    this.courseService.deletePerticularFeedback=f
+    this.openDialog2('0ms', '0ms')
   }
 
   submit(){
@@ -71,6 +91,10 @@ export class CourseDetailComponent {
   addFeedback(){
     this.feedbackaddshowbtn=this.feedbackaddshowbtn=='Cancel'?"Add Feedback":"Cancel"
     this.showFeedback=!this.showFeedback
+  }
+
+  deleteCourse(){
+    this.adminService.deleteCourse(this.courseService.perticularCourse.courseId)
   }
 
 

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/Models/User';
 import { AdminServiceService } from 'src/app/Services/admin-service.service';
-import { AdminService } from 'src/app/Services/admin.service';
 
 @Component({
   selector: 'app-users',

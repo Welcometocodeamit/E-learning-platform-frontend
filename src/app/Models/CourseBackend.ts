@@ -5,6 +5,7 @@ export interface CourseBackend{
     courseName:string
     courseDescription:string
     courseLevel:string
+    image:String
     price:number
     category:Category
 }

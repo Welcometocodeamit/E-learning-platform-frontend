@@ -15,7 +15,7 @@ export class DialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data,
     private formBuilder:FormBuilder,
     private courseService:CourseService
   ) {}
@@ -26,13 +26,15 @@ export class DialogComponent {
   selectedCourse=this.courseService.perticularCourse
 
   ngOnInit(){
-    this.form=this.formBuilder.group({
-      courseName:[this.selectedCourse.courseName, Validators.required],
-      courseDescription:[this.selectedCourse.courseDescription, Validators.required],
-      courseLevel:[this.selectedCourse.courseLevel, Validators.required],
-      price:[this.selectedCourse.price, Validators.required],
-      category:[this.selectedCourse.category.categoryId, Validators.required],
-    })
+
+      this.form=this.formBuilder.group({
+        courseName:[this.selectedCourse.courseName, Validators.required],
+        courseDescription:[this.selectedCourse.courseDescription, Validators.required],
+        courseLevel:[this.selectedCourse.courseLevel, Validators.required],
+        price:[this.selectedCourse.price, Validators.required],
+        image:[this.selectedCourse.image],
+        category:[this.selectedCourse.category.categoryId, Validators.required],
+      })
   }
 
   
@@ -44,6 +46,7 @@ export class DialogComponent {
     course.courseId=this.selectedCourse.courseId
     course.category=category
     this.courseService.updateCourse(course)
+    this.dialogRef.close();
   }
 
   onNoClick(): void {

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { CourseBackend } from 'src/app/Models/CourseBackend';
 import { CourseService } from 'src/app/Services/course.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class CardComponent {
 
   constructor(private router:Router, private courseService:CourseService){}
 
-  @Input() courseData:any
+  @Input() courseData
 
 
 
